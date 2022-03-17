@@ -1,0 +1,49 @@
+
+<div class="grid row">
+  <div class="col flex align-items-center justify-content-center">
+      <p-image src="../../../../assets/img/portrait-g53723a0ec_1280.png" alt="Image"  width="300"  [preview]="true"></p-image>
+      <p  subheader=" Si usted tiene algún problema y nos encuentra quizá pueda contratarnos…"></p>
+  </div>
+  <div class="col-4">
+    <p-card header="Contacto" subheader="(365 dias 24h)">
+      <form>
+        <h4>Fecha</h4>
+          <div class="grid p-fluid">
+            <div class="col">
+                <div class="p-inputgroup">
+                    <p-calendar inputId="fecha" (ngModel)="fecha"></p-calendar>
+                  </div>
+            </div>
+          </div>
+        <h4>Nombre</h4>
+        <div class="grid p-fluid">
+            <div class="col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input type="text" id="nombre" pInputText placeholder="Tu nombre" (ngModel)="nombre" >
+                </div>
+            </div>
+        </div>
+        <h4>Mensaje</h4>
+        <div class="grid p-fluid">
+            <div class="col ">
+                <div class="p-inputgroup">
+                  <span class="p-float-label">
+                  <textarea inputId="mensaje" rows="3" style="resize: none;" cols="30" (ngModel)="mensaje" pInputTextarea></textarea>
+                  <label for="textarea">¿En qué puedo ayudarte?...</label>
+                </span>
+                </div>
+            </div>
+        </div>
+    </form>
+    <p-button (click)="showDialog()"  label="Enviar"></p-button>
+    <!--Mensaje de envío-->
+    <p-dialog header="¡ Muy bien ! " [(visible)]="display" [style]="{width: '50vw'}">
+        <p>Su mensaje ha sido enviado con éxito. Nos pondremos en contacto lo antes posible.</p>
+        <ng-template pTemplate="footer">
+            <p-button icon="pi pi-check" (click)="display=false" label="Cerrar" styleClass="p-button-text"></p-button>
+        </ng-template>
+    </p-dialog>
+    </p-card>
+  </div>
+</div>
